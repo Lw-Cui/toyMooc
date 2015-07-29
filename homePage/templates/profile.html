@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    <link href="{% static 'css/course.css' %}" rel="stylesheet">
+    <div class="jumbotron">
+      <div class="container">
+        <h1 style="color: #77c6ff">Hello, Moocer!</h1>
+          {% if not login %}
+        <p style="color: #5b5b70">We provide many courses which you are able to image and you never image.
+            Please log in to choose your favorite!</p>
+        <p><a class="btn btn-primary btn-lg" href="/regist/" role="button"
+              style="margin-top: 20px">Regist NOW &raquo;</a></p>
+          {% else %}
+          <p style="color: #5b5b70">Welcome back, {{ username }}!</p>
+          <p><a class="btn btn-primary btn-lg" href="/course/" role="button"
+                style="margin-top: 20px">explore course NOW &raquo;</a></p>
+          {% endif %}
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for course in courses %}
+                <div class="col-md-4 course">
+                    <img src="{{ course.image.url }}" style="text-align: center">
+                    <h3 class="intro">{{ course.title }}</h3>
+                    <p class="detail">{{ course.detail }}</p>
+                    <a class="btn btn-default choose" name="{{ course.title }}" role="button">Learn now »</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/CourseManage.js' %}"></script>
+{% endblock %}

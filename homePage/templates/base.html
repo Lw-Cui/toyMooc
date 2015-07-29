@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+        initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Toy Mooc</title>
+
+    {% load staticfiles %}
+    <link href="{% static 'lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% include 'widget/nav.html' %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <p{% if message.tags %} class="alert alert-{{ message.tags }} messages" role="alert"
+            {% endif %}>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <script src="{% static 'lib/jquery-2.1.4.min.js' %}"></script>
+    {% block content %}{% endblock %}
+</body>
+</html>

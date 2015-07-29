@@ -1,0 +1,23 @@
+body {
+    background-color: #f5fffa;
+}
+
+.jumbotron {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    margin-bottom: 70px;
+}
+
+.container-fluid {
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.messages {
+    text-align: center;
+    font-size: 15px;
+}
+
+.choose {
+
+}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/course.css' %}">
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            {% for course in courses %}
+                <div class="col-md-4 course">
+                    <img src="{{ course.image.url }}" style="text-align: center">
+                    <h3 class="intro">{{ course.title }}</h3>
+                    <p class="detail">{{ course.detail }}</p>
+                    <a class="btn btn-default cancel" role="button" name="{{ course.title }}">Cancel</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/CourseManage.js' %}"></script>
+{% endblock %}

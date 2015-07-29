@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default" style="margin-bottom: 0">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Toy Mooc</a>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Profile</a></li>
+                <li><a href="/course/">Course</a></li>
+            </ul>
+            {% if not login %}
+                <a href="/login/" class="btn btn-primary btn-sm navbar-btn navbar-right">Log in</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/regist/">Regist</a></li>
+                </ul>
+            {% else %}
+                <a href="/logout/" class="btn btn-danger btn-sm navbar-btn navbar-right">Log out</a>
+                <div class="profile navbar-right">
+                    <p class="navbar-text" id="greet">hello <a href="/manage/"
+                                                               class="navbar-link">{{ username }}</a></p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
